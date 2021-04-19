@@ -31,6 +31,8 @@ class PID {
    */
   double TotalError();
 
+  double GetControl();
+
  private:
   /**
    * PID Errors
