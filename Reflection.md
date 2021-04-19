@@ -1,6 +1,6 @@
 # Reflection
 
-## Implementaiton of PID
+## Implementation of PID
 
 In PID::Init() I initialize the PID coefficients with the given parameters
 and the errors with 0.
@@ -16,6 +16,19 @@ The control value of both PIDs are truncated into the interval [-1,1].
 
 As destination speed I chose 30 mph which is slow enough for good control
 and quick enough to make it not too boring ;-).
+
+## Description of PID components
+
+The P component is directly proportional to the CTE (cross track error).
+So the higher the P coefficient, the quicker the car returns to the
+center but also more overshoots and therefore creates an oscillation.
+
+The D component calculates the derivative of the CTE. Therefore it
+reduces overshooting and damps the oscillation.
+
+The I component calculates the integral of the CTE.  Therefore it
+compensates a constant drift but also provokes overshooting if the
+I coefficient is set too large.
 
 ## Choosing of PID coefficients
 
